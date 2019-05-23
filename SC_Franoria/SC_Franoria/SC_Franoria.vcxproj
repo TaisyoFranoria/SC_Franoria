@@ -154,6 +154,7 @@
     <ClCompile Include="player.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="System.cpp" />
+    <ClCompile Include="terrain.cpp" />
     <ClCompile Include="world.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +162,7 @@
     <ClInclude Include="Anim.hpp" />
     <ClInclude Include="scene.hpp" />
     <ClInclude Include="System.hpp" />
+    <ClInclude Include="terrain.hpp" />
     <ClInclude Include="UI.hpp" />
     <ClInclude Include="world.hpp" />
   </ItemGroup>

@@ -11,6 +11,7 @@ public:
 	int getAnimLength();
 private:
 	int x, y;
+	int count;
 	int frame_now;
 	std::vector<int> gra;
 	int AnimLength;

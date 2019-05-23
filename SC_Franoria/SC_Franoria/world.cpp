@@ -2,6 +2,7 @@
 
 world::world() {
 	pl = new player();
+	tr = new terrain();
 }
 
 world::~world() {
@@ -10,8 +11,10 @@ world::~world() {
 
 void world::update() {
 	pl->update();
+	tr->update();
 }
 
 void world::draw() {
 	pl->draw();
+	tr->draw();
 }

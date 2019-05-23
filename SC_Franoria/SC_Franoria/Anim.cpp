@@ -7,20 +7,21 @@ Anim::Anim(std::string gra_path) {
 
 Anim::~Anim() {
 	//ゔぇくたーのなかみけせ！！！！！！！！！！！！！イレイズをつかうんだ
-	for (int i = 0, n = (unsigned)AnimLength; i < n; i++)
-		gra.erase(gra.begin() + i);
+	std::vector<int>().swap(gra);
 }
 
 void Anim::update(int x,int y) {
 	this->x = x;
 	this->y = y;
 
-	if (frame_now < AnimLength) {
+	if (count%5==0) {
 		frame_now++;
 	}
-	else {
+	if(frame_now>=AnimLength) {
 		frame_now = 0;
 	}
+
+	count++;
 }
 
 void Anim::draw() {

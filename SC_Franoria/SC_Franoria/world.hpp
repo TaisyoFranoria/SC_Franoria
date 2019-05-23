@@ -3,6 +3,7 @@
 #include<Dxlib.h>
 #include<vector>
 #include"player.hpp"
+#include"terrain.hpp"
 
 class world {
 public:
@@ -12,4 +13,9 @@ public:
 	void draw();
 private:
 	player* pl;
+	terrain* tr;
+	struct WorldData {
+		int player_wx;
+		int player_wy;
+	};
 };
