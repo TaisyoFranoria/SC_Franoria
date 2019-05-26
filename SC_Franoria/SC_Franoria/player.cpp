@@ -9,6 +9,11 @@ player::player() {
 	hp_MAX = hp;
 	spd = 10;
 	AnimMode = ANIMMODE_IDLE;
+
+	Gravity = true;
+
+	x = 610;
+	y = 360;
 }
 
 player::~player() {
@@ -17,16 +22,28 @@ player::~player() {
 
 void player::update() {
 	//test
-	x = 610;
-	y = 360;
+	
+	//
+
+	CalcUpdate();
+	AnimUpdate();
+}
+
+void player::CalcUpdate() {
+	if (Gravity) {
+		this->y = this->y + 5;
+	}
+}
+
+void player::AnimUpdate() {
 	switch (AnimMode) {
 	case ANIMMODE_IDLE:
 		player_Anim[0]->update(x, y);
 		break;
 	case ANIMMODE_DASH:
-		player_Anim[1]->update(x,y);
+		player_Anim[1]->update(x, y);
 		break;
-	default :
+	default:
 		DebugBreak();
 		break;
 	}
@@ -34,6 +51,7 @@ void player::update() {
 	if (CheckHitKey(KEY_INPUT_RIGHT) || CheckHitKey(KEY_INPUT_LEFT)) AnimMode = ANIMMODE_DASH;
 	else AnimMode = ANIMMODE_IDLE;
 }
+
 
 void player::draw() {
 	switch (AnimMode) {
@@ -60,4 +78,9 @@ int player::getPoint(int axis) {
 		DebugBreak();
 		return 0;
 	}
+}
+
+void player::setPoint(int valueX,int valueY) {
+	this->x = valueX;
+	this->y = valueY;
 }
